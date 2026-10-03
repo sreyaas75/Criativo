@@ -68,7 +68,7 @@ export default function Contact() {
                   <input className="field focus-visible:border-flame focus-visible:shadow-[0_0_0_4px_rgba(255,107,26,0.12)] focus-visible:outline-none" type="email" name="email" autoComplete="email" required value={form.email} onChange={setValue('email')} placeholder="you@company.com" />
                 </label>
               </div>
-              <ValidationError prefix="Email" field="email" errors={state.errors?.email} className="mt-1 block text-sm text-flame" />
+              <ValidationError prefix="Email" field="email" errors={state.errors} className="mt-1 block text-sm text-flame" />
 
               <label className="block text-sm"><span className="mb-2 block text-mute">Business / Brand</span>
                 <input className="field focus-visible:border-flame focus-visible:shadow-[0_0_0_4px_rgba(255,107,26,0.12)] focus-visible:outline-none" name="business" autoComplete="organization" value={form.business} onChange={setValue('business')} placeholder="Where do you work, or what's your brand called?" />
@@ -77,7 +77,7 @@ export default function Contact() {
               <label className="block text-sm"><span className="mb-2 block text-mute">What do you want to build?</span>
                 <textarea className="field min-h-[130px] resize-y focus-visible:border-flame focus-visible:shadow-[0_0_0_4px_rgba(255,107,26,0.12)] focus-visible:outline-none" name="message" required value={form.message} onChange={setValue('message')} placeholder="A few lines about your idea or project" />
               </label>
-              <ValidationError prefix="Message" field="message" errors={state.errors?.message} className="mt-1 block text-sm text-flame" />
+              <ValidationError prefix="Message" field="message" errors={state.errors} className="mt-1 block text-sm text-flame" />
 
               <label className="block text-sm"><span className="mb-2 block text-mute">Budget — Optional</span>
                 <input className="field focus-visible:border-flame focus-visible:shadow-[0_0_0_4px_rgba(255,107,26,0.12)] focus-visible:outline-none" name="budget" value={form.budget} onChange={setValue('budget')} placeholder="An approximate range" />

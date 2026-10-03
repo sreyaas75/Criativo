@@ -1,4 +1,4 @@
-import { Fingerprint, Megaphone, Quote, ShieldCheck, TrendingUp } from 'lucide-react'
+import { Fingerprint, Megaphone, ShieldCheck, TrendingUp } from 'lucide-react'
 import { SITE } from '../config/site'
 import MagneticButton from './ui/MagneticButton'
 import { Reveal, SectionLabel, TextReveal } from './ui/Reveal'
