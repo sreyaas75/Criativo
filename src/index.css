@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    @apply bg-ink font-sans text-bone antialiased;
+    overflow-x: hidden;
+  }
+  ::selection { background: #ff6b1a; color: #0c0b0a; }
+  :focus-visible { outline: 2px solid #ff6b1a; outline-offset: 3px; border-radius: 6px; }
+  section[id] { scroll-margin-top: 5.5rem; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8 xl:px-10; }
+  .section-y { @apply py-20 md:py-24 xl:py-28; }
+  .h-display { @apply font-display font-medium leading-[1.06] tracking-[-0.035em]; }
+  .h-section { @apply h-display text-[clamp(2.1rem,5vw,3.8rem)] sm:text-[clamp(2.5rem,4.5vw,4.3rem)] lg:text-[clamp(3rem,4vw,5rem)]; }
+  .panel { @apply rounded-3xl border border-line bg-panel; }
+
+  .link-u { position: relative; display: inline-block; }
+  .link-u::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: -3px; height: 1px;
+    background: currentColor; transform: scaleX(0); transform-origin: right;
+    transition: transform .4s cubic-bezier(.2,.8,.2,1);
+  }
+  .link-u:hover::after, .link-u:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+
+  .field {
+    @apply min-h-[44px] w-full rounded-xl border border-line bg-ink px-4 py-3.5 text-[15px] text-bone placeholder:text-mute/60 transition-all duration-300 ease-out;
+  }
+  .field:focus {
+    @apply border-flame outline-none shadow-[0_0_0_4px_rgba(255,107,26,0.12)];
+  }
+}
+
+.bg-dots {
+  background-image: radial-gradient(rgba(243,239,233,.09) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+@media (hover: none), (pointer: coarse) { .cursor-ui { display: none !important; } }
+@media (hover: hover) and (pointer: fine) {
+  body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
+  body.has-cursor input, body.has-cursor textarea, body.has-cursor select { cursor: text; }
+}
+
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee { animation: marquee 38s linear infinite; }
+@keyframes float-a { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.float-a { animation: float-a 6s ease-in-out infinite; }
+.float-b { animation: float-a 7.5s ease-in-out infinite reverse; }
